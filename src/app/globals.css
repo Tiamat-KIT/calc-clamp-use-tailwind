@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 垂直方向にスケールを変えるキーフレーム */
+@keyframes grow-progress {
+    from {
+        scale: 1 0;
+    }
+    to {
+        scale: 1 1;
+    }
+}
+
+.animationElement {
+    /* スタイリング */
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    background: royalblue;
+    transform-origin: bottom; /* 下部を変形の基準にしておく */
+
+    /* スクロールアニメーションの設定 */
+    animation: grow-progress linear; /* アニメーションを指定。イージングはlinear */
+    animation-timeline: scroll();
+}
+
+@layer base { 
+    .icon-border {
+        @apply border border-slate-300  py-3 px-6 rounded-xl bg-white/40
+    }
+}
